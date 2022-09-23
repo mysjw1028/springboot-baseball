@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="site.metacoding.red.domain.stardium.StarDiumDao">
+
+	<insert id="insert">
+		INSERT INTO player( name, bulid,createdAt)
+		VALUES(#{name}, #{bulid}, now())
+	</insert>
+
+	<select id="findAll"
+		resultType="site.metacoding.red.domain.stardium.StarDium">
+		SELECT * FROM stardium ORDER BY id DESC
+	</select>
+
+	<select id="findById"
+		resultType="site.metacoding.red.domain.stardium.StarDium">
+		SELECT * FROM stardium WHERE id = #{id}
+	</select>
+
+	<insert id="update">
+		UPDATE stardium SET stardiumname = #{stardiumname}
+		WHERE
+		id =
+		#{id}
+	</insert>
+
+	<insert id="deleteById">
+		DELETE FROM stardium WHERE id = #{id}
+	</insert>
+
+	<select id="findByPlayername"
+		resultType="site.metacoding.red.domain.stardium.StarDium">
+		SELECT * FROM stardium WHERE teamname = #{teamname}
+	</select>
+
+	<update id="updateByPlayerId">
+		UPDATE stardiumId SET teamId = null WHERE teamId =
+		#{teamId}
+	</update>
+
+</mapper>

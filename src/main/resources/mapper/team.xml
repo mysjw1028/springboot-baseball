@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="site.metacoding.red.domain.team.TeamsDao">
+
+	<insert id="insert">
+		INSERT INTO team( teambuild, teamname,
+		createdAt)
+		VALUES(#{teambuild}, #{teamname}, now())
+	</insert>
+
+	<select id="findAll"
+		resultType="site.metacoding.red.domain.team.Team">
+		SELECT * FROM team ORDER BY id DESC
+	</select>
+
+	<select id="findById"
+		resultType="site.metacoding.red.domain.team.Team">
+		SELECT * FROM team WHERE id = #{id}
+	</select>
+
+	<insert id="update">
+		UPDATE team SET teamname = #{teamname}
+		WHERE id = #{id}
+	</insert>
+
+	<insert id="deleteById">
+		DELETE FROM team WHERE id = #{id}
+	</insert>
+
+	<select id="findByTeamname"
+		resultType="site.metacoding.red.domain.team.Team">
+		SELECT * FROM team WHERE teamname = #{teamname}
+	</select>
+
+	<update id="updateByTeamId">
+		UPDATE stardium SET teamId = null WHERE teamId =
+		#{teamId}
+	</update>
+
+</mapper>

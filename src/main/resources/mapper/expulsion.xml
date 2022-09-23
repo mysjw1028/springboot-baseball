@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="site.metacoding.red.domain.explusion.ExplusionDao">
+
+	<insert id="insert">
+		INSERT INTO expulsion( reason, playername, playerId,
+		name,
+		createdAt)
+		VALUES(#{reason}, #{playername}, #{playerId}, #{name}
+		now())
+	</insert>
+
+	<select id="findAll"
+		resultType="site.metacoding.red.domain.explusion.Explusion">
+		SELECT * FROM expulsion ORDER BY id DESC
+	</select>
+
+	<select id="findById"
+		resultType="site.metacoding.red.domain.explusion.Explusion">
+		SELECT * FROM expulsion WHERE id = #{id}
+	</select>
+
+	<insert id="update">
+		UPDATE expulsion SET teamname = #{teamname}
+		WHERE id =
+		#{id}
+	</insert>
+
+	<insert id="deleteById">
+		DELETE FROM expulsion WHERE id = #{id}
+	</insert>
+
+	<select id="findByExpulsionname"
+		resultType="site.metacoding.red.domain.explusion.Explusion">
+		SELECT * FROM expulsion WHERE teamname = #{teamname}
+	</select>
+
+	<update id="updateByExpulsionId">
+		UPDATE expulsion SET playerId = null WHERE playerId =
+		#{playerId}
+	</update>
+
+</mapper>
