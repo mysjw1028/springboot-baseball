@@ -6,7 +6,7 @@
 
 	<insert id="insert">
 		INSERT INTO player( name, POSITION,
-		createdAt)
+		createDate)
 		VALUES(#{name}, #{POSITION}, now())
 	</insert>
 
